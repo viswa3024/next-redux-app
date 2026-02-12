@@ -2,7 +2,7 @@
 
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "@/redux/store";
-import { deleteUser, updateUser, User } from "@/redux/features/userReducer";
+import { deleteUser, updateUser, User } from "@/redux/reduxact/users";
 import { useState } from "react";
 
 export default function UserTable() {

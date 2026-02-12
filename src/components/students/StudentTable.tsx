@@ -2,7 +2,7 @@
 
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "@/redux/store";
-import { deleteStudent } from "@/redux/features/studentReducer";
+import { deleteStudent } from "@/redux/reduxact/students";
 
 export default function StudentTable() {
   const students = useSelector((state: RootState) => state.students.students);

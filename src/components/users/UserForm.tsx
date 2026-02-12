@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { addUser } from "@/redux/features/userReducer";
+import { addUser } from "@/redux/reduxact/users";
 import type { AppDispatch } from "@/redux/store";
 import { useStore } from "react-redux";
 
@@ -23,7 +23,15 @@ export default function UserForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    dispatch(addUser(form));
+    //dispatch(addUser(form));
+
+    dispatch(addUser({
+      id: crypto.randomUUID(),
+      name: form.name,
+      age: form.age,
+      address: form.address,
+      presentLocation: form.presentLocation
+    }));
 
     setForm({
       name: "",

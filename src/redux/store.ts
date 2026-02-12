@@ -1,16 +1,15 @@
-// import { createStore, combineReducers } from "redux";
 import { legacy_createStore as createStore, combineReducers } from "redux";
-import userReducer from "./features/userReducer";
-import studentReducer from "./features/studentReducer";
-import counterReducer from "./features/counterReducer";
+import { counterReducer } from "./reduxact/counter";
+import { userReducer } from "./reduxact/users";
+import { studentReducer } from "./reduxact/students";
 
 const rootReducer = combineReducers({
-  users: userReducer,
-  students: studentReducer,
   counter: counterReducer,
+  users: userReducer,
+  students: studentReducer
 });
 
 export const store = createStore(rootReducer);
 
-export type RootState = ReturnType<typeof store.getState>;
+export type RootState = ReturnType<typeof rootReducer>;
 export type AppDispatch = typeof store.dispatch; 

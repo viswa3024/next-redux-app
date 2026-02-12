@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useDispatch, useStore } from "react-redux";
-import { addStudent } from "@/redux/features/studentReducer";
+import { addStudent } from "@/redux/reduxact/students";
 import type { AppDispatch, RootState } from "@/redux/store";
 
 export default function StudentForm() {
@@ -18,7 +18,15 @@ export default function StudentForm() {
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    dispatch(addStudent(form));
+    // dispatch(addStudent(form));
+
+    dispatch(addStudent({
+        id: crypto.randomUUID(),     // generate id here
+        name: form.name,
+        course: form.course,
+        year: form.year,
+        city: form?.city  || ""
+      }));
 
      // print complete redux state
     console.log("FULL REDUX STATE => ", store.getState());
