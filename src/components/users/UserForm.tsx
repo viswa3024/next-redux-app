@@ -1,12 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addUser } from "@/redux/features/userSlice";
 import type { AppDispatch } from "@/redux/store";
+import { useStore } from "react-redux";
 
 export default function UserForm() {
   const dispatch = useDispatch<AppDispatch>();
+
+  const store = useStore();
+
+
 
   const [form, setForm] = useState({
     name: "",
@@ -27,6 +32,10 @@ export default function UserForm() {
       presentLocation: "",
     });
   };
+
+  useEffect(() => {
+  console.log("Redux State:", store.getState());
+}, [store]);
 
   return (
     <form
