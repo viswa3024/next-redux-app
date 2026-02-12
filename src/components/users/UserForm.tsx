@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { addUser } from "@/redux/features/userSlice";
+import { addUser } from "@/redux/features/userReducer";
 import type { AppDispatch } from "@/redux/store";
 import { useStore } from "react-redux";
 

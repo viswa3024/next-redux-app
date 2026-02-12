@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useDispatch, useStore } from "react-redux";
-import { addStudent } from "@/redux/features/studentSlice";
+import { addStudent } from "@/redux/features/studentReducer";
 import type { AppDispatch, RootState } from "@/redux/store";
 
 export default function StudentForm() {

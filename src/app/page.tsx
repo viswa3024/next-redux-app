@@ -7,7 +7,7 @@ import {
   decrement,
   incrementByAmount,
   reset,
-} from "@/redux/features/counterSlice";
+} from "@/redux/features/counterReducer";
 
 import UserForm from "@/components/users/UserForm";
 import UserTable from "@/components/users/UserTable";

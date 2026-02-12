@@ -1,19 +1,15 @@
-import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "./features/counterSlice";
-import userReducer from "./features/userSlice";
-import studentReducer from "./features/studentSlice";
-import { logger } from "./logger";
+import { createStore, combineReducers } from "redux";
+import userReducer from "./features/userReducer";
+import studentReducer from "./features/studentReducer";
+import counterReducer from "./features/counterReducer";
 
-export const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-    users: userReducer,
-    students: studentReducer,
-  },
- devTools: true, // <-- enable
- middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(logger),
+const rootReducer = combineReducers({
+  users: userReducer,
+  students: studentReducer,
+  counter: counterReducer,
 });
 
+export const store = createStore(rootReducer);
+
 export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export type AppDispatch = typeof store.dispatch; 
